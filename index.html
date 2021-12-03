@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | AwesomeBurguerGame</title>
+    <script src="Build/UnityLoader.js"></script>
+    <script>UnityLoader.instantiate("unityContainer", "Build/juego.json");</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <style>
+        div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        #aviso-movil-horizontal {
+            background-image: url('mensaje.png');
+            width: 100%;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        
+
+        @media only screen and (orientation:portrait) {
+            #wrapper {
+                display: none;
+            }
+
+            #aviso-movil-horizontal {
+                display: block;
+            }
+        }
+
+        @media only screen and (orientation:landscape) {
+            #aviso-movil-horizontal {
+                display: none;
+                position: absolute;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+        <div id="aviso-movil-horizontal">
+            
+        </div>
+    
+    
+
+    <div id="wrapper">
+        <div id="unityContainer"></div>
+    </div>
+
+
+
+    <script>setTimeout(function () {
+            $("#unityContainer").find("button").click();
+            $("body").fadeIn();
+        }, 100)</script>
+</body>
+</html>
